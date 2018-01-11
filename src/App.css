@@ -1,0 +1,18 @@
+body {
+  background-color: #f9f9f9;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50em;
+}
+
+.timer {
+  max-width: 50%;
+}
+
+.field {
+  text-align: center;
+}
