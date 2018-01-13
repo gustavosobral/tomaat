@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Timer from './components/Timer';
+import React, { Component } from 'react'
+import Timer from './components/Timer'
 
 import './App.css'
 
@@ -9,8 +9,8 @@ class App extends Component {
       <div className='app'>
         <Timer className='timer'></Timer>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

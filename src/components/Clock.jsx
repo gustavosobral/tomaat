@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import './Clock.css';
+import './Clock.css'
 
 class Clock extends Component {
   renderMinute(timer) {
@@ -37,6 +37,6 @@ class Clock extends Component {
 
 Clock.propTypes = {
   timer: PropTypes.number.isRequired
-};
+}
 
 export default Clock;

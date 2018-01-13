@@ -11,6 +11,7 @@ body {
 
 .timer {
   max-width: 50%;
+  min-width: 315px;
 }
 
 .field {

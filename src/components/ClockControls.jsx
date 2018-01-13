@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { Button, Container, Icon } from 'semantic-ui-react';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Button, Container, Icon } from 'semantic-ui-react'
 
 class ClockControls extends Component {
   constructor(props) {
@@ -12,35 +13,35 @@ class ClockControls extends Component {
   }
 
   startAction() {
-    this.props.onChangeControlState('start')
+    this.props.onChange('start')
   }
 
   reusmeAction() {
-    this.props.onChangeControlState('resume')
+    this.props.onChange('resume')
   }
 
   pauseAction() {
-    this.props.onChangeControlState('pause')
+    this.props.onChange('pause')
   }
 
   stopAction() {
-    this.props.onChangeControlState('stop')
+    this.props.onChange('stop')
   }
 
   render() {
     return (
       <Container textAlign='center'>
-        { this.props.controlState === 'start' &&
+        { this.props.clockState === 'start' &&
             <Button icon color='green' labelPosition='left' onClick={this.startAction}>
               <Icon name='play' />
               Play
             </Button> }
-        { this.props.controlState === 'paused' &&
+        { this.props.clockState === 'paused' &&
           <Button icon color='green' labelPosition='left' onClick={this.reusmeAction}>
             <Icon name='repeat' />
             Resume
           </Button> }
-        { this.props.controlState === 'started' &&
+        { this.props.clockState === 'started' &&
           <Button icon color='yellow' labelPosition='left' onClick={this.pauseAction}>
             <Icon name='pause' />
             Pause
@@ -54,4 +55,9 @@ class ClockControls extends Component {
   }
 }
 
-export default ClockControls;
+ClockControls.propTypes = {
+  clockState: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
+}
+
+export default ClockControls
