@@ -20,7 +20,7 @@ class TimerTypes extends Component {
           <Form.Field>
             <Checkbox
               radio
-              label='Short Brake (5 min)'
+              label='Short Break (5 min)'
               name='timerTypesRadioGroup'
               value='short_brake'
               checked={this.props.timerType === 'short_brake'}
@@ -30,7 +30,7 @@ class TimerTypes extends Component {
           <Form.Field>
             <Checkbox
               radio
-              label='Long Brake (10 min)'
+              label='Long Break (10 min)'
               name='timerTypesRadioGroup'
               value='long_brake'
               checked={this.props.timerType === 'long_brake'}
