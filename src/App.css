@@ -9,11 +9,7 @@ body {
   min-height: 50em;
 }
 
-.timer {
+.tomaat {
   max-width: 50%;
-  min-width: 315px;
-}
-
-.field {
-  text-align: center;
+  min-width: 350px;
 }

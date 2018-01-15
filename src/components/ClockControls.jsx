@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Container, Icon } from 'semantic-ui-react'
 
+import './ClockControls.css'
+
 class ClockControls extends Component {
   constructor(props) {
     super(props)
@@ -30,11 +32,11 @@ class ClockControls extends Component {
 
   render() {
     return (
-      <Container textAlign='center'>
+      <Container textAlign='center' className='clock-controls'>
         { this.props.clockState === 'start' &&
             <Button icon color='green' labelPosition='left' onClick={this.startAction}>
               <Icon name='play' />
-              Play
+              Start
             </Button> }
         { this.props.clockState === 'paused' &&
           <Button icon color='green' labelPosition='left' onClick={this.reusmeAction}>

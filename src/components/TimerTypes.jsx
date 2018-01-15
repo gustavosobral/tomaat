@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Checkbox, Form } from 'semantic-ui-react'
 
+import './TimerTypes.css'
+
 class TimerTypes extends Component {
   render() {
     return(
-      <Form>
+      <Form className='timer-types'>
         <Form.Group widths='equal'>
           <Form.Field>
             <Checkbox

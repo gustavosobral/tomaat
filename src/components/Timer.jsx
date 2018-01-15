@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
-import { Divider, Header, Message, Segment } from 'semantic-ui-react'
+import PropTypes from 'prop-types'
+import { Divider, Header } from 'semantic-ui-react'
 
 import Clock from './Clock'
 import ClockControls from './ClockControls'
 import TimerTypes from './TimerTypes'
+
+import './Timer.css'
 
 class Timer extends Component {
   constructor(props) {
@@ -14,7 +17,6 @@ class Timer extends Component {
       timerLimit: 1500,
       clockState: 'start',
       timerType: 'work',
-      hasNotification: false,
       interval: null,
       alarmAudio: new Audio('alarm.mp3')
     }
@@ -27,8 +29,6 @@ class Timer extends Component {
     this.stopClock                 = this.stopClock.bind(this)
     this.incrementTimer            = this.incrementTimer.bind(this)
     this.checkAndIncrementTimer    = this.checkAndIncrementTimer.bind(this)
-    this.renderNotification        = this.renderNotification.bind(this)
-    this.handleNotificationDismiss = this.handleNotificationDismiss.bind(this)
     this.handleTimerTypeChange     = this.handleTimerTypeChange.bind(this)
   }
 
@@ -50,11 +50,12 @@ class Timer extends Component {
 
   soundAlarm() {
     this.state.alarmAudio.play()
-    this.setState({hasNotification: true})
+    this.props.changeNotificationState(true)
   }
 
   startClock() {
-    this.setState({timer: 0, clockState: 'started', hasNotification: false, interval: setInterval(this.checkAndIncrementTimer, 1000)})
+    this.setState({timer: 0, clockState: 'started', interval: setInterval(this.checkAndIncrementTimer, 1000)})
+    this.props.changeNotificationState(false)
   }
 
   resumeClock() {
@@ -67,7 +68,8 @@ class Timer extends Component {
   }
 
   stopClock() {
-    this.setState({timer: 0, clockState: 'start', hasNotification: false})
+    this.setState({timer: 0, clockState: 'start'})
+    this.props.changeNotificationState(false)
     clearInterval(this.state.interval)
   }
 
@@ -83,10 +85,6 @@ class Timer extends Component {
 
   incrementTimer() {
     this.setState({timer: this.state.timer + 1})
-  }
-
-  handleNotificationDismiss() {
-    this.setState({hasNotification: false})
   }
 
   changeClockState(newState) {
@@ -105,32 +103,23 @@ class Timer extends Component {
     }
   }
 
-  renderNotification() {
-    return(
-      <Message positive
-        onDismiss={this.handleNotificationDismiss}
-        icon='clock'
-        header='You time is complete!'
-      />
-    )
-  }
-
   render() {
     return (
       <div className='timer'>
-        { this.state.hasNotification && this.renderNotification() }
-        <Segment padded>
-          <Header color='red' size='huge'>Tomaat</Header>
-          <Divider horizontal>Clock</Divider>
-          <Clock timer={this.state.timer}/>
-          <Divider horizontal>Timer Type</Divider>
-          <TimerTypes timerType={this.state.timerType} onChange={this.handleTimerTypeChange}></TimerTypes>
-          <Divider horizontal>Controls</Divider>
-          <ClockControls clockState={this.state.clockState} onChange={this.changeClockState}/>
-        </Segment>
+        <Header color='red' size='huge'>Tomaat</Header>
+        <Divider horizontal>Clock</Divider>
+        <Clock timer={this.state.timer}/>
+        <Divider horizontal>Timer Type</Divider>
+        <TimerTypes timerType={this.state.timerType} onChange={this.handleTimerTypeChange}></TimerTypes>
+        <Divider horizontal>Controls</Divider>
+        <ClockControls clockState={this.state.clockState} onChange={this.changeClockState}/>
       </div>
     )
   }
+}
+
+TimerTypes.propTypes = {
+  changeNotificationState: PropTypes.func
 }
 
 export default Timer
