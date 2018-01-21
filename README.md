@@ -42,3 +42,13 @@ This section define requirements, project goals and possible future feature (bra
 * Data persistence (On browser)
 * Statistics
 * Electron/React Native app (?)
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/gustavosobral/tomaat. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+This app is available as open source under the terms of the GNU General Public License v3.0.
+
+See [COPYING](COPYING) to see the full text.
