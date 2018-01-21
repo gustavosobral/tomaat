@@ -51,4 +51,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/gustav
 
 This app is available as open source under the terms of the GNU General Public License v3.0.
 
-See [COPYING](COPYING) to see the full text.
+See [LICENSE](LICENSE) to see the full text.
